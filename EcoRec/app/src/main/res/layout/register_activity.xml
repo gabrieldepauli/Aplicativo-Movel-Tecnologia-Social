@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.menuADM.RegisterActivity">
 
     <TextView
         android:id="@+id/main_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bem-vindo!"
+        android:text="Menu ADM"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,28 +21,15 @@
         android:textStyle="bold"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_login_adm"
+        android:id="@+id/button_logout"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logar como ADM"
-        android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@id/main_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_acessar_dados"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_acessar_dados"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Acessar Dados"
-        android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@id/button_login_adm"
+        android:text="Logout"
+        android:textSize="18sp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
