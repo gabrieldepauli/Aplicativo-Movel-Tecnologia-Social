@@ -15,6 +15,9 @@ interface RecycleCenterMaterialDao {
     @Query("DELETE FROM recycle_center_material where recycleCenterId = :idCenter and recycleMaterialId = :idMaterial")
     suspend fun deleteRelation(idCenter:Int, idMaterial:Int): Int
 
+    @Query ("SELECT * from recycle_center_material")
+    suspend fun getAllRelations():List<RecycleCenterMaterial>
+
     @Query("SELECT * FROM recycle_center WHERE id IN (SELECT recycleCenterId FROM recycle_center_material WHERE recycleMaterialId = :idMaterial)")
     suspend fun getCenterByMaterial(idMaterial: Int):List<RecycleCenter>
 

@@ -19,6 +19,10 @@ class RecycleCenterMaterialRepository(context: Context) {
         return dao.deleteRelation(idCenter, idMaterial) > 0
     }
 
+    suspend fun getAllRelations(): List<RecycleCenterMaterial>{
+        return dao.getAllRelations()
+    }
+
     suspend fun getCentersByMaterial(idMaterial: Int): List<RecycleCenter> {
         return dao.getCenterByMaterial(idMaterial)
     }
