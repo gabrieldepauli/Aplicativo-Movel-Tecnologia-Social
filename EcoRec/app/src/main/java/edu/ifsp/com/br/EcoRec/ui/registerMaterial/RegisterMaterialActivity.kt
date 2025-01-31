@@ -1,4 +1,4 @@
-package edu.ifsp.com.br.EcoRec.ui.registerCenter
+package edu.ifsp.com.br.EcoRec.ui.registerMaterial
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,21 +11,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import edu.ifsp.com.br.EcoRec.R
 import edu.ifsp.com.br.EcoRec.databinding.ActivityRegisterCenterBinding
-import edu.ifsp.com.br.EcoRec.databinding.RegisterActivityBinding
+import edu.ifsp.com.br.EcoRec.databinding.ActivityRegisterMaterialBinding
 import edu.ifsp.com.br.EcoRec.ui.menuADM.RegisterActivity
+import edu.ifsp.com.br.EcoRec.ui.registerCenter.RegisterCenterViewModel
 
-class RegisterCenterActivity : AppCompatActivity() {
+class RegisterMaterialActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityRegisterCenterBinding
-    private lateinit var viewModel: RegisterCenterViewModel
-
+    private lateinit var binding: ActivityRegisterMaterialBinding
+    private lateinit var viewModel: RegisterMaterialViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterCenterBinding.inflate(layoutInflater)
+        binding = ActivityRegisterMaterialBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this).get(RegisterCenterViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(RegisterMaterialViewModel::class.java)
 
         setupListeners()
         setupObservers()
@@ -34,11 +34,10 @@ class RegisterCenterActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.insertResult.observe(this, Observer { success ->
             if (success) {
-                Toast.makeText(this, "Centro cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Material cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
                 binding.textNome.text?.clear()
-                binding.textEndereco.text?.clear()
             } else {
-                Toast.makeText(this, "Erro ao cadastrar o centro!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erro ao cadastrar o material!", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -58,14 +57,12 @@ class RegisterCenterActivity : AppCompatActivity() {
 
     private fun registrar(){
         var nomeCenter = binding.textNome.text.toString()
-        var enderecoCenter = binding.textEndereco.text.toString()
 
-        if (nomeCenter.isEmpty() || enderecoCenter.isEmpty()) {
+        if (nomeCenter.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             return
         }
 
-        viewModel.insertCenter(nomeCenter, enderecoCenter)
+        viewModel.insertMaterial(nomeCenter)
     }
-
 }

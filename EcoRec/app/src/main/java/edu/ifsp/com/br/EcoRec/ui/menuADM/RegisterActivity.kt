@@ -10,6 +10,7 @@ import edu.ifsp.com.br.EcoRec.databinding.ActivityMainBinding
 import edu.ifsp.com.br.EcoRec.databinding.RegisterActivityBinding
 import edu.ifsp.com.br.EcoRec.ui.main.MainActivity
 import edu.ifsp.com.br.EcoRec.ui.registerCenter.RegisterCenterActivity
+import edu.ifsp.com.br.EcoRec.ui.registerMaterial.RegisterMaterialActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -38,7 +39,9 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.buttonRegisterMaterial.setOnClickListener {
-
+            val mIntent = Intent(this, RegisterMaterialActivity::class.java)
+            startActivity(mIntent)
+            finish()
         }
 
         binding.buttonRegisterRelation.setOnClickListener {
