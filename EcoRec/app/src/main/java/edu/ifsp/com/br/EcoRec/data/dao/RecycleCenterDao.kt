@@ -8,7 +8,7 @@ import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenter
 @Dao
 interface RecycleCenterDao {
     @Insert
-    suspend fun insertRecycleCenter(center:RecycleCenter)
+    suspend fun insertRecycleCenter(center:RecycleCenter): Long
 
     @Query ("SELECT * from recycle_center")
     suspend fun getAllRecycleCenters():List<RecycleCenter>
@@ -17,5 +17,5 @@ interface RecycleCenterDao {
     suspend fun getById(id:Int):RecycleCenter
 
     @Query("DELETE FROM recycle_center WHERE id = :id")
-    suspend fun deleteById(id: Int)
+    suspend fun deleteById(id: Int): Int
 }

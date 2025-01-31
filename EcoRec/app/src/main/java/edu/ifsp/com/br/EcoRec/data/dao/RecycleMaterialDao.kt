@@ -8,7 +8,7 @@ import edu.ifsp.com.br.EcoRec.data.entity.RecycleMaterial
 @Dao
 interface RecycleMaterialDao {
     @Insert
-    suspend fun insertRecycleMaterial(center: RecycleMaterial)
+    suspend fun insertRecycleMaterial(center: RecycleMaterial): Long
 
     @Query("SELECT * from recycle_material")
     suspend fun getAllRecycleMaterials():List<RecycleMaterial>
@@ -17,5 +17,5 @@ interface RecycleMaterialDao {
     suspend fun getById(id:Int): RecycleMaterial
 
     @Query("DELETE FROM recycle_material WHERE id = :id")
-    suspend fun deleteById(id: Int)
+    suspend fun deleteById(id: Int): Int
 }

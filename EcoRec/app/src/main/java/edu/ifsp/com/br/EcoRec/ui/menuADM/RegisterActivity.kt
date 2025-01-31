@@ -9,6 +9,7 @@ import edu.ifsp.com.br.EcoRec.R
 import edu.ifsp.com.br.EcoRec.databinding.ActivityMainBinding
 import edu.ifsp.com.br.EcoRec.databinding.RegisterActivityBinding
 import edu.ifsp.com.br.EcoRec.ui.main.MainActivity
+import edu.ifsp.com.br.EcoRec.ui.registerCenter.RegisterCenterActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -28,6 +29,20 @@ class RegisterActivity : AppCompatActivity() {
     private fun setupListeners(){
         binding.buttonLogout.setOnClickListener{
             logout()
+        }
+
+        binding.buttonRegisterCenter.setOnClickListener {
+            val mIntent = Intent(this, RegisterCenterActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
+
+        binding.buttonRegisterMaterial.setOnClickListener {
+
+        }
+
+        binding.buttonRegisterRelation.setOnClickListener {
+
         }
     }
 

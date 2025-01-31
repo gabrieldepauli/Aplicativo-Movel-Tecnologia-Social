@@ -10,14 +10,13 @@ import edu.ifsp.com.br.EcoRec.data.entity.RecycleMaterial
 @Dao
 interface RecycleCenterMaterialDao {
     @Insert
-    suspend fun insertRelation(recycleCenterMaterial:RecycleCenterMaterial)
+    suspend fun insertRelation(recycleCenterMaterial:RecycleCenterMaterial): Long
 
     @Query("DELETE FROM recycle_center_material where recycleCenterId = :idCenter and recycleMaterialId = :idMaterial")
-    suspend fun deleteRelation(idCenter:Int, idMaterial:Int)
+    suspend fun deleteRelation(idCenter:Int, idMaterial:Int): Int
 
     @Query("SELECT * FROM recycle_center WHERE id IN (SELECT recycleCenterId FROM recycle_center_material WHERE recycleMaterialId = :idMaterial)")
     suspend fun getCenterByMaterial(idMaterial: Int):List<RecycleCenter>
-
 
     @Query("SELECT * FROM recycle_center WHERE id IN (SELECT recycleCenterId FROM recycle_center_material WHERE recycleMaterialId IN( :idMaterials))")
     suspend fun getCenterByMaterials(idMaterials:IntArray):List<RecycleCenter>
