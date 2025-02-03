@@ -28,6 +28,9 @@
             android:name=".ui.menuADM.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.info.InfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>

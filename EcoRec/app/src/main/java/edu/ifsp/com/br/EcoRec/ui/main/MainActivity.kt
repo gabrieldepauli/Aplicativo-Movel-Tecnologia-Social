@@ -8,6 +8,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import edu.ifsp.com.br.EcoRec.databinding.ActivityMainBinding
+import edu.ifsp.com.br.EcoRec.ui.info.InfoActivity
 import edu.ifsp.com.br.EcoRec.ui.login.AuthActivity
 import edu.ifsp.com.br.EcoRec.ui.menuADM.RegisterActivity
 
@@ -46,7 +47,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonAcessarDados.setOnClickListener {
-
+            val mIntent = Intent(this, InfoActivity::class.java)
+            loginLauncher.launch(mIntent)
         }
     }
 }
