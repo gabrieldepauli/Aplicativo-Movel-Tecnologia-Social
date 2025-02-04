@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EcoRec"
         tools:targetApi="31">
         <activity
+            android:name=".ui.changeData.ModificarDadosActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.registerRelation.RelationActivity"
             android:exported="false" />
         <activity

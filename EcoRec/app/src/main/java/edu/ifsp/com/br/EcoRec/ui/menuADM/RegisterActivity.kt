@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import edu.ifsp.com.br.EcoRec.R
 import edu.ifsp.com.br.EcoRec.databinding.ActivityMainBinding
 import edu.ifsp.com.br.EcoRec.databinding.RegisterActivityBinding
+import edu.ifsp.com.br.EcoRec.ui.changeData.ModificarDadosActivity
 import edu.ifsp.com.br.EcoRec.ui.main.MainActivity
 import edu.ifsp.com.br.EcoRec.ui.registerCenter.RegisterCenterActivity
 import edu.ifsp.com.br.EcoRec.ui.registerMaterial.RegisterMaterialActivity
@@ -49,6 +50,11 @@ class RegisterActivity : AppCompatActivity() {
             val mIntent = Intent(this, RelationActivity::class.java)
             startActivity(mIntent)
             finish()
+        }
+
+        binding.buttonModificarDados.setOnClickListener {
+            val mIntent = Intent(this, ModificarDadosActivity::class.java)
+            startActivity(mIntent)
         }
     }
 

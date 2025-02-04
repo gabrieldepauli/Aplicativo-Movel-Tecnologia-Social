@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="Registrar centro"
         android:layout_marginTop="100dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_title"/>
@@ -38,8 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrar material"
-        android:layout_marginTop="100dp"
-        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_registerCenter"/>
@@ -50,11 +50,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrar relação"
-        android:layout_marginTop="100dp"
-        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_registerMaterial"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_modificarDados"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modificar dados"
+        android:layout_marginTop="50dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_registerRelation"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_logout"
