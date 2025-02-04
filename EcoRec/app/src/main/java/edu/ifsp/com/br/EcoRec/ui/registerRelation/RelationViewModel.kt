@@ -44,20 +44,25 @@ class RelationViewModel(application: Application) : AndroidViewModel(application
 
     fun insertRelation(idCenter: Int, idMaterial: Int) {
         viewModelScope.launch {
-            val centerExists = centerRepository.getRecycleCenterById(idCenter) != null
-            val materialExists = materialRepository.getRecycleMaterialById(idMaterial) != null
+            try {
+                val centerExists = centerRepository.getRecycleCenterById(idCenter) != null
+                val materialExists = materialRepository.getRecycleMaterialById(idMaterial) != null
 
-            _findCenter.postValue(centerExists)
-            _findMaterial.postValue(materialExists)
+                _findCenter.postValue(centerExists)
+                _findMaterial.postValue(materialExists)
 
-            if (!centerExists || !materialExists) {
+                if (!centerExists || !materialExists) {
+                    _insertResult.postValue(false)
+                    return@launch
+                }
+
+                val result = centerMaterialRepository.insertRelation(RecycleCenterMaterial(recycleCenterId = idCenter, recycleMaterialId = idMaterial))
+
+                _insertResult.postValue(result)
+                load()
+            } catch (e: android.database.sqlite.SQLiteConstraintException) {
                 _insertResult.postValue(false)
-                return@launch
             }
-
-            val result = centerMaterialRepository.insertRelation(RecycleCenterMaterial(recycleCenterId = idCenter, recycleMaterialId = idMaterial))
-            _insertResult.postValue(result)
-            load()
         }
     }
 

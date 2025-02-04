@@ -38,7 +38,9 @@ class RelationActivity : AppCompatActivity() {
                 binding.textIdCenter.text?.clear()
                 binding.textIdMaterial.text?.clear()
             } else {
-                Toast.makeText(this, "Erro ao cadastrar a relação!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Essa relação já existe!", Toast.LENGTH_SHORT).show()
+                binding.textIdCenter.text?.clear()
+                binding.textIdMaterial.text?.clear()
             }
         })
 
