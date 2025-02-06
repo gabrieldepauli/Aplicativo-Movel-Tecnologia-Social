@@ -16,14 +16,24 @@ class ModificarDadosViewModel(application: Application) : AndroidViewModel(appli
     private val centerRepository = RecycleCenterRepository(application)
     private val materialRepository = RecycleMaterialRepository(application)
 
+    private var toDeleteCenter: RecycleCenter? = null
+    private var toDeleteMaterial: RecycleMaterial? = null
+
+    private val _toDeleteC = MutableLiveData<RecycleCenter>()
+    val toDeleteC: LiveData<RecycleCenter> = _toDeleteC
+
+    private val _toDeleteM = MutableLiveData<RecycleMaterial>()
+    val toDeleteM: LiveData<RecycleMaterial> = _toDeleteM
+
+    private val _deletedItem = MutableLiveData<Boolean>()
+    val deletedItem: LiveData<Boolean> get() = _deletedItem
+
     private val _centers = MutableLiveData<List<RecycleCenter>>()
     val centers: LiveData<List<RecycleCenter>> get() = _centers
 
     private val _materials = MutableLiveData<List<RecycleMaterial>>()
     val materials: LiveData<List<RecycleMaterial>> get() = _materials
 
-    private val _deletedItem = MutableLiveData<Boolean>()
-    val deletedItem: LiveData<Boolean> get() = _deletedItem
 
     fun loadCenters() {
         viewModelScope.launch {
@@ -37,11 +47,29 @@ class ModificarDadosViewModel(application: Application) : AndroidViewModel(appli
         }
     }
 
+    fun notifyDeleteMaterial(id: Int) {
+        viewModelScope.launch {
+            toDeleteMaterial = materialRepository.getRecycleMaterialById(id)
+            if (toDeleteMaterial != null) {
+                _toDeleteM.value = toDeleteMaterial!!
+            }
+        }
+    }
+
     fun deleteMaterial(id: Int) {
         viewModelScope.launch {
             val result = materialRepository.deleteRecycleMaterialById(id)
             _deletedItem.postValue(result)
             loadMaterials()
+        }
+    }
+
+    fun notifyDeleteCenter(id: Int) {
+        viewModelScope.launch {
+            toDeleteCenter = centerRepository.getRecycleCenterById(id)
+            if (toDeleteCenter != null) {
+                _toDeleteC.value = toDeleteCenter!!
+            }
         }
     }
 

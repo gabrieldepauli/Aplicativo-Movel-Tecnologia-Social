@@ -1,5 +1,6 @@
 package edu.ifsp.com.br.EcoRec.ui.changeData
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -7,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -69,6 +71,18 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
                 adapter.update(it)
             }
         })
+
+        viewModel.toDeleteC.observe(this, Observer { center ->
+            center?.let {
+                showDeleteConfirm(it.id, false)
+            }
+        })
+
+        viewModel.toDeleteM.observe(this, Observer { material ->
+            material?.let {
+                showDeleteConfirm(it.id, true)
+            }
+        })
     }
 
     private fun configSpinner() {
@@ -100,10 +114,31 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
 
 
     override fun DeleteMaterial(id: Int) {
-        viewModel.deleteMaterial(id)
+        viewModel.notifyDeleteMaterial(id)
     }
 
     override fun DeleteCenter(id: Int) {
-        viewModel.deleteCenter(id)
+        viewModel.notifyDeleteCenter(id)
+    }
+
+    private fun showDeleteConfirm(id: Int, isMaterial: Boolean) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Confirmar Exclusão")
+        builder.setMessage("Realmente deseja excluir esse dado?")
+
+        builder.setPositiveButton("Excluir") { dialog, _ ->
+            if (isMaterial) {
+                viewModel.deleteMaterial(id)
+            } else {
+                viewModel.deleteCenter(id)
+            }
+            dialog.dismiss()
+        }
+
+        builder.setNeutralButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        builder.create().show()
     }
 }
