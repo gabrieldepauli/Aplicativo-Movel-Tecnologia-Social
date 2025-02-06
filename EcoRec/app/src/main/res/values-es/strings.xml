@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">EcoRec</string>
+    <string name="register">Registrar</string>
+    <string name="back">Volver</string>
+
+    <string-array name="spinner_items">
+        <item>Centros</item>
+        <item>Materiales</item>
+    </string-array>
+
+    <!-- Strings Activity_Main -->
+    <string name="welcome">¡Bienvenido!</string>
+    <string name="admin_login">Iniciar sesión como Admin</string>
+    <string name="dados">Acceder a los datos</string>
+
+    <!-- Strings Activity_Info -->
+    <string name="center_text">Centros de Reciclaje</string>
+
+    <!-- Strings Activity_Modificar_Dados -->
+    <string name="modificar_dados">Modificar datos</string>
+
+    <!-- Strings Activity_Register_Center -->
+    <string name="add_center">Registrar Centro</string>
+    <string name="name">Nombre</string>
+    <string name="address">Dirección</string>
+
+    <!-- Strings Activity_Register_Material -->
+    <string name="add_material">Registrar Material</string>
+
+    <!-- Strings Activity_Register_Relation -->
+    <string name="add_relation">Registrar Relación</string>
+    <string name="center_id">ID del centro de reciclaje</string>
+    <string name="material_id">ID del material</string>
+    <string name="relacionar">Vincular</string>
+
+    <!-- Strings Auth_Activity -->
+    <string name="login">Iniciar sesión</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="logged">Mantenerme conectado</string>
+    <string name="enter">Entrar</string>
+
+    <!-- Strings Register_Activity -->
+    <string name="menu">Menú Admin</string>
+    <string name="edit">Modificar Datos</string>
+    <string name="Logout">Cerrar sesión</string>
+
+</resources>
