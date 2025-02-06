@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.menuADM.RegisterActivity">
 
     <TextView
@@ -51,7 +52,7 @@
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar material"
+            android:text="@string/add_material"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/green_medium"
@@ -62,7 +63,7 @@
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_material"
+            android:text="@string/add_relation"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/green_medium"

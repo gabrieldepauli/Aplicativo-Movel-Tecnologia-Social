@@ -2,6 +2,7 @@
     <string name="app_name">EcoRec</string>
     <string name="register">Registrar</string>
     <string name="back">Voltar</string>
+    <string name="todo">TODO</string>
 
     <string-array name="spinner_items">
         <item>Centros</item>
@@ -43,6 +44,6 @@
     <!-- Strings Register_Activity -->
     <string name="menu">Menu Admin</string>
     <string name="edit">Modificar Dados</string>
-    <string name="Logout">LogOut</string>enter
+    <string name="Logout">LogOut</string>
 
 </resources>

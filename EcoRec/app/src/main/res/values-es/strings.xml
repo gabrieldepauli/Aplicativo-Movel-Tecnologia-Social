@@ -2,6 +2,7 @@
     <string name="app_name">EcoRec</string>
     <string name="register">Registrar</string>
     <string name="back">Volver</string>
+    <string name="todo">TODO</string>
 
     <string-array name="spinner_items">
         <item>Centros</item>

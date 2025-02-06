@@ -32,6 +32,12 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
 
         viewModel = ViewModelProvider(this).get(ModificarDadosViewModel::class.java)
 
+        binding.buttonVoltar.setOnClickListener {
+            val mIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
+
         setupRecyclerView()
         setupObservers()
         configSpinner()

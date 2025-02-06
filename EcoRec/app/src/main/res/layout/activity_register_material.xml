@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/white"
     tools:context=".ui.registerMaterial.RegisterMaterialActivity">
 
     <TextView
@@ -59,19 +60,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textlayout_nome" />
 
-    <com.google.android.material.button.MaterialButton
+    <ImageButton
         android:id="@+id/button_voltar"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/back"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/green"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_back_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/green" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
