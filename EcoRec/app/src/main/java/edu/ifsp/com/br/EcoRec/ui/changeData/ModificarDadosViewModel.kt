@@ -28,6 +28,9 @@ class ModificarDadosViewModel(application: Application) : AndroidViewModel(appli
     private val _deletedItem = MutableLiveData<Boolean>()
     val deletedItem: LiveData<Boolean> get() = _deletedItem
 
+    private val _updatedItem = MutableLiveData<Boolean>()
+    val updatedItem: LiveData<Boolean> get() = _updatedItem
+
     private val _centers = MutableLiveData<List<RecycleCenter>>()
     val centers: LiveData<List<RecycleCenter>> get() = _centers
 
@@ -77,6 +80,22 @@ class ModificarDadosViewModel(application: Application) : AndroidViewModel(appli
         viewModelScope.launch {
             val result = centerRepository.deleteRecycleCenterById(id)
             _deletedItem.postValue(result)
+            loadCenters()
+        }
+    }
+
+    fun updateMaterial(id: Int, nome: String) {
+        viewModelScope.launch {
+            val result = materialRepository.updateRecycleMaterial(id, nome)
+            _updatedItem.postValue(result)
+            loadMaterials()
+        }
+    }
+
+    fun updateCenter(id: Int, nome: String, endereco: String) {
+        viewModelScope.launch {
+            val result = centerRepository.updateRecycleCenter(id, nome, endereco)
+            _updatedItem.postValue(result)
             loadCenters()
         }
     }

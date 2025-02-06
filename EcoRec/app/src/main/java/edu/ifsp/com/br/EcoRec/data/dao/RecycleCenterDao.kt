@@ -18,4 +18,7 @@ interface RecycleCenterDao {
 
     @Query("DELETE FROM recycle_center WHERE id = :id")
     suspend fun deleteById(id: Int): Int
+
+    @Query("UPDATE recycle_center SET name = :nome, location = :endereco WHERE id = :id")
+    suspend fun updateRecycleCenter(id: Int, nome: String, endereco: String): Int
 }

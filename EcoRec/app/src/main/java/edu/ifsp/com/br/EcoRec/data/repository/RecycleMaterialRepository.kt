@@ -25,4 +25,7 @@ class RecycleMaterialRepository(context: Context) {
         return dao.deleteById(id) > 0
     }
 
+    suspend fun updateRecycleMaterial(id: Int, nome: String): Boolean {
+        return dao.updateRecycleMaterial(id, nome) > 0
+    }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -16,6 +17,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.ifsp.com.br.EcoRec.R
+import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenter
+import edu.ifsp.com.br.EcoRec.data.entity.RecycleMaterial
 import edu.ifsp.com.br.EcoRec.databinding.ActivityModificarDadosBinding
 import edu.ifsp.com.br.EcoRec.databinding.ActivityRegisterMaterialBinding
 import edu.ifsp.com.br.EcoRec.ui.menuADM.RegisterActivity
@@ -56,7 +59,15 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
             if (success) {
                 Toast.makeText(this, "Item deletado com sucesso", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Erro ao deltar o item!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erro ao deletar o item!", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        viewModel.updatedItem.observe(this, Observer { success ->
+            if (success) {
+                Toast.makeText(this, "Item editado com sucesso", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Erro ao editar o item!", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -119,6 +130,66 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
 
     override fun DeleteCenter(id: Int) {
         viewModel.notifyDeleteCenter(id)
+    }
+
+    override fun UpdateMaterial(material: RecycleMaterial) {
+        handleEditSite(material)
+    }
+
+    override fun UpdateCenter(center: RecycleCenter) {
+        handleEditSite(center)
+    }
+
+    private fun handleEditSite(item: Any) {
+        val inflater = layoutInflater
+        val view: View
+        val builder = AlertDialog.Builder(this)
+
+        if (item is RecycleCenter) {
+            view = inflater.inflate(R.layout.edit_item_layout, null)
+            val nameField = view.findViewById<EditText>(R.id.edittext_name)
+            val addressField = view.findViewById<EditText>(R.id.edittext_address)
+            addressField.visibility = View.VISIBLE
+
+            nameField.setText(item.name)
+            addressField.setText(item.location)
+
+            builder.setTitle("Editar Centro de Reciclagem")
+                .setView(view)
+                .setPositiveButton("Salvar") { dialog, _ ->
+                    val updatedCenter = item.copy(
+                        name = nameField.text.toString(),
+                        location = addressField.text.toString()
+                    )
+                    viewModel.updateCenter(updatedCenter.id, updatedCenter.name, updatedCenter.location)
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Cancelar") { dialog, _ ->
+                    dialog.dismiss()
+                }
+
+        } else if (item is RecycleMaterial) {
+            view = inflater.inflate(R.layout.edit_item_layout, null)
+            val nameField = view.findViewById<EditText>(R.id.edittext_name)
+
+            nameField.setText(item.name)
+
+            builder.setTitle("Editar Material Reciclável")
+                .setView(view)
+                .setPositiveButton("Salvar") { dialog, _ ->
+                    val updatedMaterial = item.copy(
+                        name = nameField.text.toString()
+                    )
+                    viewModel.updateMaterial(updatedMaterial.id, updatedMaterial.name)
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Cancelar") { dialog, _ ->
+                    dialog.dismiss()
+                }
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun showDeleteConfirm(id: Int, isMaterial: Boolean) {

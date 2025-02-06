@@ -25,4 +25,7 @@ class RecycleCenterRepository(context: Context) {
         return dao.deleteById(id) > 0
     }
 
+    suspend fun updateRecycleCenter(id: Int, nome: String, endereco: String): Boolean {
+        return dao.updateRecycleCenter(id, nome, endereco) > 0
+    }
 }

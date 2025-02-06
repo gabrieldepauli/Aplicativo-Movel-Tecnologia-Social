@@ -36,11 +36,13 @@ class ModificarDadosAdapter(private var dataset: List<Any>, private val listener
                 holder.binding.textId.text = item.id.toString()
                 holder.binding.textNome.text = "Nome: ${item.name}\nLocalização: ${item.location}"
                 holder.binding.imageDelete.setOnClickListener { listener.DeleteCenter(item.id) }
+                holder.binding.imageEdit.setOnClickListener { listener.UpdateCenter(item) }
             }
             is RecycleMaterial -> {
                 holder.binding.textId.text = item.id.toString()
                 holder.binding.textNome.text = "Nome: ${item.name}"
                 holder.binding.imageDelete.setOnClickListener { listener.DeleteMaterial(item.id) }
+                holder.binding.imageEdit.setOnClickListener { listener.UpdateMaterial(item) }
             }
         }
     }
