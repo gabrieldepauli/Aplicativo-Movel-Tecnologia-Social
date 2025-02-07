@@ -1,5 +1,6 @@
 package edu.ifsp.com.br.EcoRec.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import edu.ifsp.com.br.EcoRec.R
 import edu.ifsp.com.br.EcoRec.databinding.AuthActivityBinding
+import edu.ifsp.com.br.EcoRec.ui.main.MainActivity
 
 class AuthActivity : AppCompatActivity() {
 
@@ -22,6 +24,7 @@ class AuthActivity : AppCompatActivity() {
 
         setupObservers()
         setupListeners()
+        setupBackButton()
     }
 
     private fun setupListeners(){
@@ -75,4 +78,13 @@ class AuthActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun setupBackButton() {
+        binding.buttonVoltar.setOnClickListener {
+            val mIntent = Intent(this, MainActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
+    }
+
 }

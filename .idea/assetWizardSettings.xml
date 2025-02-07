@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/login/baseline_login_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/arrow_drop_down/baseline_arrow_drop_down_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,7 +28,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_login" />
+                            <entry key="outputName" value="ic_spinner_arrow_black" />
                             <entry key="sourceFile" value="C:\Users\Win10\AndroidStudioProjects\ProjetoFinal\Aplicativo-Movel-Tecnologia-Social" />
                           </map>
                         </option>

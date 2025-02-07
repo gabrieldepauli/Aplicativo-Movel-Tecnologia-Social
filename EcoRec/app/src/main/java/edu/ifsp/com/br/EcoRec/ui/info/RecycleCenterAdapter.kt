@@ -26,8 +26,14 @@ class RecycleCenterAdapter(private val onClick: (RecycleCenter) -> Unit) :
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(centro: RecycleCenter, onClick: (RecycleCenter) -> Unit) {
-            itemView.findViewById<TextView>(R.id.textNomeCentro).text = centro.name
-            itemView.findViewById<TextView>(R.id.textEnderecoCentro).text = centro.location
+            itemView.findViewById<TextView>(R.id.textNomeCentro).apply {
+                text = centro.name
+                setTextColor(itemView.context.getColor(R.color.black))
+            }
+            itemView.findViewById<TextView>(R.id.textEnderecoCentro).apply {
+                text = centro.location
+                setTextColor(itemView.context.getColor(R.color.black))
+            }
             itemView.setOnClickListener { onClick(centro) }
         }
     }

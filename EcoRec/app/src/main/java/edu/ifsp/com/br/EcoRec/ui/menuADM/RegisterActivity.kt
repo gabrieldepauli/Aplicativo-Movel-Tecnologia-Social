@@ -27,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
         setupListeners()
+        setupBackButton()
     }
 
     private fun setupListeners(){
@@ -58,6 +59,14 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupBackButton() {
+        binding.buttonVoltar.setOnClickListener {
+            val mIntent = Intent(this, MainActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
+    }
+
     private fun logout(){
         viewModel.logout()
 
@@ -66,4 +75,5 @@ class RegisterActivity : AppCompatActivity() {
         startActivity(mIntent)
         finish()
     }
+
 }

@@ -21,6 +21,7 @@ import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenter
 import edu.ifsp.com.br.EcoRec.data.entity.RecycleMaterial
 import edu.ifsp.com.br.EcoRec.databinding.ActivityModificarDadosBinding
 import edu.ifsp.com.br.EcoRec.databinding.ActivityRegisterMaterialBinding
+import edu.ifsp.com.br.EcoRec.ui.main.MainActivity
 import edu.ifsp.com.br.EcoRec.ui.menuADM.RegisterActivity
 import edu.ifsp.com.br.EcoRec.ui.registerMaterial.RegisterMaterialViewModel
 
@@ -37,14 +38,9 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
 
         viewModel = ViewModelProvider(this).get(ModificarDadosViewModel::class.java)
 
-        binding.buttonVoltar.setOnClickListener {
-            val mIntent = Intent(this, RegisterActivity::class.java)
-            startActivity(mIntent)
-            finish()
-        }
-
         setupRecyclerView()
         setupObservers()
+        setupBackButton()
         configSpinner()
     }
 
@@ -94,6 +90,14 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
                 showDeleteConfirm(it.id, true)
             }
         })
+    }
+
+    private fun setupBackButton() {
+        binding.buttonVoltar.setOnClickListener {
+            val mIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
     }
 
     private fun configSpinner() {
@@ -212,4 +216,5 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
 
         builder.create().show()
     }
+
 }

@@ -51,4 +51,5 @@ class MainActivity : AppCompatActivity() {
             loginLauncher.launch(mIntent)
         }
     }
+
 }

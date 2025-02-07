@@ -31,7 +31,7 @@
     <!-- Strings Activity_Register_Relation -->
     <string name="add_relation">Registrar Relação</string>
     <string name="center_id">ID do centro de reciclagem</string>
-    <string name="material_id">ID do centro de reciclagem</string>
+    <string name="material_id">ID do material de reciclagem</string>
     <string name="relacionar">Relacionar</string>
 
     <!-- Strings Auth_Activity -->

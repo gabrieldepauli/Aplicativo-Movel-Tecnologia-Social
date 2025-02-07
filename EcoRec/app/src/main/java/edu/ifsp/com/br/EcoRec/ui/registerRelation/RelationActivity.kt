@@ -86,4 +86,5 @@ class RelationActivity : AppCompatActivity() {
 
         viewModel.insertRelation(idCenter, idMaterial)
     }
+
 }

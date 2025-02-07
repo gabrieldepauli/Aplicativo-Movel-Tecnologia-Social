@@ -65,4 +65,5 @@ class RegisterMaterialActivity : AppCompatActivity() {
 
         viewModel.insertMaterial(nomeCenter)
     }
+
 }

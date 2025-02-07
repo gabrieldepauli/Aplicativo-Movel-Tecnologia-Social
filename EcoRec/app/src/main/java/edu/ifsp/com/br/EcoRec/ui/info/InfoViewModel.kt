@@ -14,7 +14,17 @@ class InfoViewModel(private val repository: RecycleCenterMaterialRepository, pri
     suspend fun getMateriaisDoCentro(centroId: Int): List<RecycleMaterial> {
         return repository.getMaterialsByCenter(centroId)
     }
+
     suspend fun getCentros(): List<RecycleCenter>{
         return centerRepo.getAllRecycleCenters()
     }
+
+    suspend fun getCentrosPorMaterial(materialId: Int): List<RecycleCenter> {
+        return repository.getCentersByMaterial(materialId)
+    }
+
+    suspend fun getTodosMateriais(): List<RecycleMaterial> {
+        return materialRepo.getAllRecycleMaterials()
+    }
+
 }
