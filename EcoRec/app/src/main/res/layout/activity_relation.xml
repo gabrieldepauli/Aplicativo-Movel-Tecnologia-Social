@@ -40,15 +40,26 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.20" />
 
-    <Spinner
-        android:id="@+id/spinnerCenters"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/editTextCenter"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:hint="Busque um centro"
         app:layout_constraintTop_toBottomOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/buttonSearch"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSearch"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buscar"
+        android:backgroundTint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCentros"
@@ -56,7 +67,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/spinnerCenters"
+        app:layout_constraintTop_toBottomOf="@id/editTextCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

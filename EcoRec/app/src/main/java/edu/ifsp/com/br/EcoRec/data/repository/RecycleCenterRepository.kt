@@ -28,4 +28,8 @@ class RecycleCenterRepository(context: Context) {
     suspend fun updateRecycleCenter(id: Int, nome: String, endereco: String): Boolean {
         return dao.updateRecycleCenter(id, nome, endereco) > 0
     }
+
+    suspend fun searchCentersByName(centerName: String): List<RecycleCenter> {
+        return dao.searchCentersByName(centerName)
+    }
 }

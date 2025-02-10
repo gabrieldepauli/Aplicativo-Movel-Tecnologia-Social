@@ -19,17 +19,8 @@ class RelationViewModel(application: Application) : AndroidViewModel(application
     private val centerRepository = RecycleCenterRepository(application)
     private val materialRepository = RecycleMaterialRepository(application)
 
-    private val _materials = MutableLiveData<List<RecycleMaterial>>()
-    val materials: LiveData<List<RecycleMaterial>> = _materials
-
     private val _centers = MutableLiveData<List<RecycleCenter>>()
     val centers: LiveData<List<RecycleCenter>> = _centers
-
-    fun loadMaterials() {
-        viewModelScope.launch {
-            _materials.value = materialRepository.getAllRecycleMaterials()
-        }
-    }
 
     fun loadCenters() {
         viewModelScope.launch {
@@ -53,6 +44,11 @@ class RelationViewModel(application: Application) : AndroidViewModel(application
             materialsLiveData.postValue(materials)
         }
         return materialsLiveData
+    }
+
+    suspend fun searchByCenterName(centerName: String) {
+        val searchedCenters = centerRepository.searchCentersByName(centerName)
+        _centers.postValue(searchedCenters)
     }
 
     suspend fun addRelation(centerId: Int, materialId: Int) {

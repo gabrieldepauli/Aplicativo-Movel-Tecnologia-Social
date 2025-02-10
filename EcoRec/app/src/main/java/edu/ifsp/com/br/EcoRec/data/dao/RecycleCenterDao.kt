@@ -21,4 +21,7 @@ interface RecycleCenterDao {
 
     @Query("UPDATE recycle_center SET name = :nome, location = :endereco WHERE id = :id")
     suspend fun updateRecycleCenter(id: Int, nome: String, endereco: String): Int
+
+    @Query("SELECT * FROM recycle_center WHERE name LIKE '%' || :centerName || '%'")
+    suspend fun searchCentersByName(centerName: String): List<RecycleCenter>
 }

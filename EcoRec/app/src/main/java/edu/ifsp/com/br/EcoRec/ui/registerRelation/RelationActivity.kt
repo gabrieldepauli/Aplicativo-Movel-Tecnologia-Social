@@ -2,12 +2,16 @@ package edu.ifsp.com.br.EcoRec.ui.registerRelation
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import edu.ifsp.com.br.EcoRec.R
 import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenter
 import edu.ifsp.com.br.EcoRec.databinding.ActivityRelationBinding
 import edu.ifsp.com.br.EcoRec.ui.info.RecycleCenterAdapter
@@ -36,6 +40,14 @@ class RelationActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        binding.buttonSearch.setOnClickListener {
+            val centerName = binding.editTextCenter.text.toString()
+
+            lifecycleScope.launch {
+                viewModel.searchByCenterName(centerName)
+            }
         }
     }
 
