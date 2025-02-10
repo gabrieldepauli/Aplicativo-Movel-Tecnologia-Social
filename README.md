@@ -100,7 +100,7 @@ Esta é a página onde é possível modificar ou excluir os dados dos Centros ou
 
 Momento em que está sendo modificado as informações do Centro de Reciclagem.
 
-![Modificando os Centros](prints/editando_centro.jpeg)
+![Modificando os Centros](prints/editar_centro.png)
 
 ### - Página de Modificar Dados (Materiais)
 
