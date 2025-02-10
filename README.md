@@ -48,3 +48,8 @@ Para que o aplicativo funcione corretamente, siga os passos abaixo:
 
 ## Screenshots do Sistema em funcionamento 📷
 
+### - Página Inicial
+
+Esta é a página inicial onde é possível escolher a opção de "Login" ou "Acessar Dados".
+
+![Página Inicial](prints/pagina_inicial.png)
