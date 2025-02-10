@@ -53,3 +53,63 @@ Para que o aplicativo funcione corretamente, siga os passos abaixo:
 Esta é a página inicial onde é possível escolher a opção de "Login" ou "Acessar Dados".
 
 ![Página Inicial](prints/pagina_inicial.png)
+
+### - Página de Login
+
+Esta é a página onde será possível efetuar o Login do usuário.
+
+![Página de Login](prints/pagina_login.png)
+
+### - Menu do Usuário
+
+Esta é a página onde aparecerá o Menu de opções do Usuário.
+
+![Menu do Usuário](prints/menu_admin.png)
+
+### - Página de Cadastrar Centros
+
+Esta é a página onde será possível cadastrar um Centro de Reciclagem.
+
+![Página de Cadastrar Centros](prints/cadastra_centro.png)
+
+### - Página de Cadastrar Material
+
+Esta é a página onde será possível cadastrar um Material.
+
+![Página de Cadastrar Material](prints/cadastra_material.png)
+
+### - Página de Registrar Relação
+
+Esta é a página onde será possível associar um Material com um Centro de Reciclagem em específico.
+
+![Página de Registrar Relação](prints/registra_relacao.png)
+
+### - Registrando Relação
+
+Momento em que está sendo registrada a relação de um Centro com os Materiais desejados.
+
+![Registrando Relação](prints/registrando_relacao.png)
+
+### - Página de Modificar Dados (Centros de Reciclagem)
+
+Esta é a página onde é possível modificar ou excluir os dados dos Centros ou dos Materiais, aqui nesta imagem estamos filtrando os "Centros".
+
+![Página de Modificar Dados Centro](prints/modificar_dados_centro.png)
+
+### - Modificando os Centros
+
+Momento em que está sendo modificado as informações do Centro de Reciclagem.
+
+![Modificando os Centros](prints/editar_centros.png)
+
+### - Página de Modificar Dados (Materiais)
+
+Esta é a página onde é possível modificar ou excluir os dados dos Centros ou dos Materiais, aqui nesta imagem estamos filtrando os "Materiais".
+
+![Página de Modificar Dados Materiais](prints/modificar_dados_materiais.png)
+
+### - Modificando os Materiais
+
+Momento em que está sendo modificado as informações do Material.
+
+![Modificando os Materiais](prints/editar_material.png)
