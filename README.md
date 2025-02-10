@@ -35,7 +35,7 @@ Este projeto é uma aplicação Android (desenvolvida no Android Studio) com lin
 
 - **Cadastrar Material:** Este botão encaminha para uma página (Activity) onde será possível cadastrar um material. Aqui para que o cadastro seja efetuado será necessário a inserção apenas do nome do mesmo. Caso seja registrado com sucesso, aparecerá uma mensagem na tela (Toast) de sucesso e caso ocorra algum problema será exibido uma mensagem de erro na tela (Toast). **OBS: Esta página possui também um botão (ícone de seta) para voltar para o menu do administrador.** 
  
-- **Registrar Relação:** Este botão encaminha para uma página (Activity) onde será possível realizar a inclusão dos materias que cada centro em específico descarta. Para que seja realizada esta inclusão o administrador deve insirir o ID do centro e o ID do material que deseja associar. Caso seja registrado com sucesso, aparecerá uma mensagem na tela (Toast) de sucesso e caso ocorra algum problema será exibido uma mensagem de erro na tela (Toast). **OBS: Esta página possui também um botão (ícone de seta) para voltar para o menu do administrador.** 
+- **Registrar Relação:** Este botão encaminha para uma página (Activity) onde será possível realizar a inclusão dos materias a lista de materiais de cada centro em específico. Para que seja realizada esta inclusão o administrador deve clicar no Centro desejado (caso haja necessidade ele pode fazer uma busca pelo nome do centro para facilitar sua localização na listagem) e selecionar os Materiais que deseja relacionar a este Centro. Caso seja registrado com sucesso, aparecerá uma mensagem na tela (Toast) de sucesso e caso ocorra algum problema será exibido uma mensagem de erro na tela (Toast). **OBS: Esta página possui também um botão (ícone de seta) para voltar para o menu do administrador.** 
 
 - **Modificar Dados:** Este botão encaminha para uma página (Activity) onde pode filtrar por centro de reciclagem ou materiais, após selecionar o filtro será listado todos os itens (centros de reciclagem ou materiais), assim o administrador ao clicar no ícone do lápis poderá realizar as alterações dos dados de um item em específico (centro de reciclagem ou material), podendo também efetuar a exclusão do item ao clicar no ícone de lixeira em frente a seus dados. Caso seja modificado ou excluído com sucesso, aparecerá uma mensagem na tela (Toast) de sucesso e caso ocorra algum problema será exibido uma mensagem de erro na tela (Toast). **OBS: Esta página possui também um botão (ícone de seta) para voltar para o menu do administrador.** 
  
@@ -100,7 +100,7 @@ Esta é a página onde é possível modificar ou excluir os dados dos Centros ou
 
 Momento em que está sendo modificado as informações do Centro de Reciclagem.
 
-![Modificando os Centros](prints/editar_centros.png)
+![Modificando os Centros](prints/editando_centro.png)
 
 ### - Página de Modificar Dados (Materiais)
 
