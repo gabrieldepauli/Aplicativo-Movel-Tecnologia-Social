@@ -1,5 +1,6 @@
 package edu.ifsp.com.br.EcoRec.ui.registerRelation
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenter
 import edu.ifsp.com.br.EcoRec.databinding.ActivityRelationBinding
 import edu.ifsp.com.br.EcoRec.ui.info.RecycleCenterAdapter
+import edu.ifsp.com.br.EcoRec.ui.menuADM.RegisterActivity
 import kotlinx.coroutines.launch
 
 class RelationActivity : AppCompatActivity() {
@@ -25,7 +27,16 @@ class RelationActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(RelationViewModel::class.java)
         viewModel.loadCenters()
 
+        setupListeners()
         setupRecyclerView()
+    }
+
+    private fun setupListeners() {
+        binding.buttonVoltar.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setupRecyclerView() {
