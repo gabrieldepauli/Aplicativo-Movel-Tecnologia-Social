@@ -56,7 +56,7 @@ class InfoActivity : AppCompatActivity() {
     private fun setupSpinner() {
         lifecycleScope.launch {
             val materiais = viewModel.getTodosMateriais().toMutableList()
-            materiais.add(0, RecycleMaterial(0, "Todos os Materiais"))
+            materiais.add(0, RecycleMaterial(0, "Todos os Centros"))
 
             val adapterSpinner = ArrayAdapter(
                 this@InfoActivity,

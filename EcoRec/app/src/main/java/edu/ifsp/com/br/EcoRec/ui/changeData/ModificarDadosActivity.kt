@@ -102,22 +102,26 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
 
     private fun configSpinner() {
         val spinnerItems = resources.getStringArray(R.array.spinner_items)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        binding.spinner.setSelection(0)
+        val adapter = ArrayAdapter(
+            this,
+            R.layout.item_spinner,
+            spinnerItems
+        )
+        adapter.setDropDownViewResource(R.layout.item_spinner)
 
         binding.spinner.adapter = adapter
+        binding.spinner.setSelection(0)
 
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 when (position) {
                     0 -> {
-                        Toast.makeText(this@ModificarDadosActivity, "Centros selecionado", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ModificarDadosActivity, "Centros selecionados", Toast.LENGTH_SHORT).show()
                         viewModel.loadCenters()
                     }
                     1 -> {
-                        Toast.makeText(this@ModificarDadosActivity, "Materiais selecionado", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ModificarDadosActivity, "Materiais selecionados", Toast.LENGTH_SHORT).show()
                         viewModel.loadMaterials()
                     }
                 }
@@ -126,7 +130,6 @@ class ModificarDadosActivity : AppCompatActivity(), ItemClickListener {
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
-
 
     override fun DeleteMaterial(id: Int) {
         viewModel.notifyDeleteMaterial(id)
