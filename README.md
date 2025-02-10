@@ -57,15 +57,17 @@ Para que o aplicativo funcione corretamente, siga os passos abaixo:
 
 **2. Baixando e instalando via APK de Debug:**
 
-- Clone o repositório do GitHub.
-- Entre na pasta APK, clique em cima do APK e instale.
-- Por último, coloque o sistema para rodar e teste as funcionalidades.
+- Entre no repositório do GitHub.
+- Entre na pasta APK, clique em cima do APK, após isso clique em "Vier raw" e aguarde a download.
+- Depois clique no arquivo baixado e inicie sua instalação (caso necessário modifique as permissões de seu dispositivo para autorizar instalações de Apps externos).
+- Por último, após concluída a instalação abra o aplicativo e teste suas funcionalidades.
 
 **3. Baixando e instalando via APK de Release:**
 
 - Clone o repositório do GitHub.
-- Siga o caminho de pastas a seguir EcoRec -> app -> release, clique em cima do APK e instale.
-- Por último, coloque o sistema para rodar e teste as funcionalidades.
+- Siga o caminho de pastas a seguir EcoRec -> app -> release, após isso clique em "Vier raw" e aguarde a download.
+- Depois clique no arquivo baixado e inicie sua instalação (caso necessário modifique as permissões de seu dispositivo para autorizar instalações de Apps externos).
+- Por último, após concluída a instalação abra o aplicativo e teste suas funcionalidades.
 
 ## Screenshots do Sistema em funcionamento 📷
 
