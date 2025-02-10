@@ -5,7 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenter
 import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenterMaterial
+import edu.ifsp.com.br.EcoRec.data.entity.RecycleMaterial
 import edu.ifsp.com.br.EcoRec.data.repository.RecycleCenterMaterialRepository
 import edu.ifsp.com.br.EcoRec.data.repository.RecycleCenterRepository
 import edu.ifsp.com.br.EcoRec.data.repository.RecycleMaterialRepository
@@ -17,53 +19,48 @@ class RelationViewModel(application: Application) : AndroidViewModel(application
     private val centerRepository = RecycleCenterRepository(application)
     private val materialRepository = RecycleMaterialRepository(application)
 
-    private val _relations = MutableLiveData<List<RecycleCenterMaterial>>()
-    val relations: LiveData<List<RecycleCenterMaterial>> = _relations
+    private val _materials = MutableLiveData<List<RecycleMaterial>>()
+    val materials: LiveData<List<RecycleMaterial>> = _materials
 
-    private val _insertResult = MutableLiveData<Boolean>()
-    val insertResult: LiveData<Boolean> get() = _insertResult
+    private val _centers = MutableLiveData<List<RecycleCenter>>()
+    val centers: LiveData<List<RecycleCenter>> = _centers
 
-    private val _findCenter = MutableLiveData<Boolean>()
-    val findCenter: LiveData<Boolean> get() = _findCenter
-
-    private val _findMaterial = MutableLiveData<Boolean>()
-    val findMaterial: LiveData<Boolean> get() = _findMaterial
-
-    init {
+    fun loadMaterials() {
         viewModelScope.launch {
-            val list = centerMaterialRepository.getAllRelations()
-            _relations.postValue(list)
+            _materials.value = materialRepository.getAllRecycleMaterials()
         }
     }
 
-    fun load() {
+    fun loadCenters() {
         viewModelScope.launch {
-            _relations.value = centerMaterialRepository.getAllRelations()
+            _centers.value = centerRepository.getAllRecycleCenters()
         }
     }
 
-    fun insertRelation(idCenter: Int, idMaterial: Int) {
+    fun getAllMaterials(): LiveData<List<RecycleMaterial>> {
+        val materialsLiveData = MutableLiveData<List<RecycleMaterial>>()
         viewModelScope.launch {
-            try {
-                val centerExists = centerRepository.getRecycleCenterById(idCenter) != null
-                val materialExists = materialRepository.getRecycleMaterialById(idMaterial) != null
-
-                _findCenter.postValue(centerExists)
-                _findMaterial.postValue(materialExists)
-
-                if (!centerExists || !materialExists) {
-                    _insertResult.postValue(false)
-                    return@launch
-                }
-
-                val result = centerMaterialRepository.insertRelation(RecycleCenterMaterial(recycleCenterId = idCenter, recycleMaterialId = idMaterial))
-
-                _insertResult.postValue(result)
-                load()
-            } catch (e: android.database.sqlite.SQLiteConstraintException) {
-                _insertResult.postValue(false)
-            }
+            val materials = materialRepository.getAllRecycleMaterials()
+            materialsLiveData.postValue(materials)
         }
+        return materialsLiveData
     }
 
+    fun getMaterialsForCenter(centerId: Int): LiveData<List<RecycleMaterial>> {
+        val materialsLiveData = MutableLiveData<List<RecycleMaterial>>()
+        viewModelScope.launch {
+            val materials = centerMaterialRepository.getMaterialsByCenter(centerId)
+            materialsLiveData.postValue(materials)
+        }
+        return materialsLiveData
+    }
+
+    suspend fun addRelation(centerId: Int, materialId: Int) {
+        val relation = RecycleCenterMaterial(centerId, materialId)
+        centerMaterialRepository.insertRelation(relation)
+    }
+
+    suspend fun removeRelation(centerId: Int, materialId: Int) {
+        centerMaterialRepository.deleteRelation(centerId, materialId)
+    }
 }

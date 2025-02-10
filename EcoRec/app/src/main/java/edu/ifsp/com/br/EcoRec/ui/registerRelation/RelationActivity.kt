@@ -1,19 +1,16 @@
 package edu.ifsp.com.br.EcoRec.ui.registerRelation
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import edu.ifsp.com.br.EcoRec.R
-import edu.ifsp.com.br.EcoRec.databinding.ActivityRegisterMaterialBinding
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import edu.ifsp.com.br.EcoRec.data.entity.RecycleCenter
 import edu.ifsp.com.br.EcoRec.databinding.ActivityRelationBinding
-import edu.ifsp.com.br.EcoRec.ui.menuADM.RegisterActivity
-import edu.ifsp.com.br.EcoRec.ui.registerMaterial.RegisterMaterialViewModel
+import edu.ifsp.com.br.EcoRec.ui.info.RecycleCenterAdapter
+import kotlinx.coroutines.launch
 
 class RelationActivity : AppCompatActivity() {
 
@@ -26,65 +23,59 @@ class RelationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this).get(RelationViewModel::class.java)
+        viewModel.loadCenters()
 
-        setupListeners()
-        setupObservers()
+        setupRecyclerView()
     }
 
-    private fun setupObservers() {
-        viewModel.insertResult.observe(this, Observer { success ->
-            if (success) {
-                Toast.makeText(this, "Relação cadastrada com sucesso!", Toast.LENGTH_SHORT).show()
-                binding.textIdCenter.text?.clear()
-                binding.textIdMaterial.text?.clear()
-            } else {
-                Toast.makeText(this, "Erro ao relacionar os itens!", Toast.LENGTH_SHORT).show()
-                binding.textIdCenter.text?.clear()
-                binding.textIdMaterial.text?.clear()
-            }
-        })
+    private fun setupRecyclerView() {
+        val adapter = RecycleCenterAdapter { centro -> mostrarMateriais(centro) }
+        binding.recyclerViewCentros.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewCentros.adapter = adapter
 
-        viewModel.findCenter.observe(this, Observer { success ->
-            if (!success) {
-                Toast.makeText(this, "ID do centro não encontrado!", Toast.LENGTH_SHORT).show()
-                binding.textIdCenter.text?.clear()
-            }
-        })
-
-        viewModel.findMaterial.observe(this, Observer { success ->
-            if (!success) {
-                Toast.makeText(this, "ID do material não encontrado!", Toast.LENGTH_SHORT).show()
-                binding.textIdMaterial.text?.clear()
-            }
-        })
-    }
-
-
-    private fun setupListeners(){
-        binding.buttonRelacionar.setOnClickListener {
-            relacionar()
-        }
-
-        binding.buttonVoltar.setOnClickListener {
-            val mIntent = Intent(this, RegisterActivity::class.java)
-            startActivity(mIntent)
-            finish()
+        viewModel.centers.observe(this) { centers ->
+            adapter.submitList(centers)
         }
     }
 
-    private fun relacionar() {
-        val idCenterText = binding.textIdCenter.text.toString()
-        val idMaterialText = binding.textIdMaterial.text.toString()
+    private fun mostrarMateriais(centro: RecycleCenter) {
+        viewModel.getAllMaterials().observe(this) { allMaterials ->
 
-        if (idCenterText.isEmpty() || idMaterialText.isEmpty()) {
-            Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
-            return
+            viewModel.getMaterialsForCenter(centro.id).observe(this) { relatedMaterials ->
+
+                val materialNames = allMaterials.map { it.name }.toTypedArray()
+
+                val selectedItems = BooleanArray(allMaterials.size) { material ->
+                    relatedMaterials.any { it.id == allMaterials[material].id }
+                }
+
+                AlertDialog.Builder(this)
+                    .setTitle("Selecione os Materiais para o Centro: ${centro.name}")
+                    .setMultiChoiceItems(materialNames, selectedItems) { _, which, isChecked ->
+                        selectedItems[which] = isChecked
+                    }
+                    .setPositiveButton("Confirmar") { _, _ ->
+                        val selectedMaterials = allMaterials.filterIndexed { index, _ -> selectedItems[index] }
+
+                        lifecycleScope.launch {
+                            for (material in selectedMaterials) {
+                                if (!relatedMaterials.contains(material)) {
+                                    viewModel.addRelation(centro.id, material.id)
+                                }
+                            }
+
+                            for (material in relatedMaterials) {
+                                if (!selectedMaterials.contains(material)) {
+                                    viewModel.removeRelation(centro.id, material.id)
+                                }
+                            }
+
+                            Toast.makeText(this@RelationActivity, "Selecionado: ${selectedMaterials.joinToString { it.name }}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .setNegativeButton("Cancelar", null)
+                    .show()
+            }
         }
-
-        val idCenter = idCenterText.toInt()
-        val idMaterial = idMaterialText.toInt()
-
-        viewModel.insertRelation(idCenter, idMaterial)
     }
-
 }
