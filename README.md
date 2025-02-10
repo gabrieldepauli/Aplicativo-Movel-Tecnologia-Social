@@ -23,6 +23,8 @@ O projeto do Aplicativo Móvel de Tecnologia Social da EcoRec foi criado pelos a
 Este projeto é uma aplicação Android (desenvolvida no Android Studio) com linguagem Kotlin que tem o objetivo de conectar usuários a centros de reciclagem, buscando promover a conscientização ambiental e o descarte correto dos lixos recicláveis. No aplicativo, o usuário poderá visualizar os centros de reciclagem registrados no sistema, além dos tipos de descartes aceitos por cada centro em específico. Os administradores do sistema possuem funções de cadastrar novos centros de reciclagem, cadastrar materiais, realizar a associação de cada centro com os materiais coletados por ele e também realizar modicação de dados, tanto do centro quanto dos materiais.
 **OBS: Login do administrador ("admim") e senha do administrador ("admim") pré-cadastrados.**
 
+**Os Diagramas de Classe do projeto estão inclusos dentro da pasta "assets", além de que foi disponibilizado dois tipos de APK, um está dentro da pasta APK (este é o APK de Debug), o outro esta dentro da pasta EcoRec -> app -> release (este é o APK gerado para Produção, podendo rodar em qualquer dispositivo).**
+
 - **Página Inicial:** Esta página possui uma mensagem de "Bem-Vindo!"e uma imagem de apresentação, junto com duas opções de botões, "Logar como Admin" e "Acessar Dados".
 
 - **Acessar Dados:** Este botão encaminha para uma página (Activity) onde aparecerão as informações dos centros cadastrados e ao clicar em cima do nome do centro desejado irão aparecer os materiais associados a cada um deles. **OBS: Esta página possui também um botão (ícone de seta) para voltar para a página inicial.** 
@@ -45,6 +47,22 @@ Este projeto é uma aplicação Android (desenvolvida no Android Studio) com lin
 
 Para que o aplicativo funcione corretamente, siga os passos abaixo:
 
+**1. Utilizando o Android Strudio com projeto do GitHub**
+     - Baixe e instale o "Android Studio".
+     - Instale e configure o Emulador ou o Dispositivo móvel em sua máquina.
+     - Clone o repositório do Github e abra o mesmo no seu aplicativo, aguarde até que todas as configurações sejam realizadas.
+     - Configure o método de "Run" caso necessário.
+     - Por último, coloque o sistema para rodar e teste as funcionalidades.
+
+**2. Baixando e instalando via APK de Debug**
+     - Clone o repositório do GitHub.
+     - Entre na pasta APK, clique em cima do APK e instale.
+     - Por último, coloque o sistema para rodar e teste as funcionalidades.
+
+**3. Baixando e instalando via APK de Release**
+     - Clone o repositório do GitHub.
+     - Siga o caminho de pastas a seguir EcoRec -> app -> release, clique em cima do APK e instale.
+     - Por último, coloque o sistema para rodar e teste as funcionalidades.
 
 ## Screenshots do Sistema em funcionamento 📷
 
