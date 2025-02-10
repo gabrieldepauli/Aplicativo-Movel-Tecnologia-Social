@@ -47,22 +47,25 @@ Este projeto é uma aplicação Android (desenvolvida no Android Studio) com lin
 
 Para que o aplicativo funcione corretamente, siga os passos abaixo:
 
-**1. Utilizando o Android Strudio com projeto do GitHub**
-     - Baixe e instale o "Android Studio".
-     - Instale e configure o Emulador ou o Dispositivo móvel em sua máquina.
-     - Clone o repositório do Github e abra o mesmo no seu aplicativo, aguarde até que todas as configurações sejam realizadas.
-     - Configure o método de "Run" caso necessário.
-     - Por último, coloque o sistema para rodar e teste as funcionalidades.
+**1. Utilizando o Android Strudio com projeto do GitHub:**
 
-**2. Baixando e instalando via APK de Debug**
-     - Clone o repositório do GitHub.
-     - Entre na pasta APK, clique em cima do APK e instale.
-     - Por último, coloque o sistema para rodar e teste as funcionalidades.
+- Baixe e instale o "Android Studio".
+- Instale e configure o Emulador ou o Dispositivo móvel em sua máquina.
+- Clone o repositório do Github e abra o mesmo no seu aplicativo, aguarde até que todas as configurações sejam realizadas.
+- Configure o método de "Run" caso necessário.
+- Por último, coloque o sistema para rodar e teste as funcionalidades.
 
-**3. Baixando e instalando via APK de Release**
-     - Clone o repositório do GitHub.
-     - Siga o caminho de pastas a seguir EcoRec -> app -> release, clique em cima do APK e instale.
-     - Por último, coloque o sistema para rodar e teste as funcionalidades.
+**2. Baixando e instalando via APK de Debug:**
+
+- Clone o repositório do GitHub.
+- Entre na pasta APK, clique em cima do APK e instale.
+- Por último, coloque o sistema para rodar e teste as funcionalidades.
+
+**3. Baixando e instalando via APK de Release:**
+
+- Clone o repositório do GitHub.
+- Siga o caminho de pastas a seguir EcoRec -> app -> release, clique em cima do APK e instale.
+- Por último, coloque o sistema para rodar e teste as funcionalidades.
 
 ## Screenshots do Sistema em funcionamento 📷
 
