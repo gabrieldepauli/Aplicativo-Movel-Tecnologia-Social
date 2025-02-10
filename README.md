@@ -113,3 +113,33 @@ Esta é a página onde é possível modificar ou excluir os dados dos Centros ou
 Momento em que está sendo modificado as informações do Material.
 
 ![Modificando os Materiais](prints/editar_material.png)
+
+### - Página de Acessar Dados
+
+Esta é a página onde é possível visualizar os Centros de Reciclagem registrados e os materias associados a cada um, além de filtrar os centros por material.
+
+![Página de Acessar Dados](prints/todos_centros.png)
+
+### - Página de Acessar Dados
+
+Esta é a página onde é possível visualizar os Centros de Reciclagem registrados e os materias associados a cada um, além de filtrar os centros por material.
+
+![Página de Acessar Dados](prints/todos_centros.png)
+
+### - Filtro do Centro pelo Material
+
+Aqui está a exibição do filtro de seleção do material que está buscando descartar.
+
+![Filtro do Centro pelo Material](prints/filtrando.png)
+
+### - Após selecionar o Filtro do Material
+
+Aqui está a exibição da página e dos Centros após selecionar um Material em específico para descartar.
+
+![Após selecionar o Filtro do Material](prints/filtro_selecionado.png)
+
+### - Visualizando os Materiais do Centro selecionado
+
+Aqui está a exibição da lista de Materiais que o Centro em específico aceita.
+
+![Visualizando os Materiais do Centro selecionado](prints/mostrar_materiais.png)
