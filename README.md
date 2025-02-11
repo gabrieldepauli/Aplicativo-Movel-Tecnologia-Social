@@ -166,3 +166,5 @@ Aqui está a exibição da página e dos Centros após selecionar um Material em
 Aqui está a exibição da lista de Materiais que o Centro em específico aceita.
 
 ![Visualizando os Materiais do Centro selecionado](prints/mostrar_materiais.png)
+
+📹 [Vídeo: Como usar o nosso app](https://drive.google.com/file/d/1-yONQI7I6VTSSRW1BctiQ9c0P5VncYgT/view?usp=drive_link)
