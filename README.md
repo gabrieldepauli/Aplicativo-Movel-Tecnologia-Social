@@ -69,6 +69,10 @@ Para que o aplicativo funcione corretamente, siga os passos abaixo:
 - Depois clique no arquivo baixado e inicie sua instalação (caso necessário modifique as permissões de seu dispositivo para autorizar instalações de Apps externos).
 - Por último, após concluída a instalação abra o aplicativo e teste suas funcionalidades.
 
+**4. Vídeo tutorial:**
+
+- Você pode assistir ao vídeo demonstrativo para entender melhor como usar o app [clicando aqui!](https://drive.google.com/file/d/1-yONQI7I6VTSSRW1BctiQ9c0P5VncYgT/view?usp=drive_link)
+
 ## Screenshots do Sistema em funcionamento 📷
 
 ### - Página Inicial
@@ -166,5 +170,3 @@ Aqui está a exibição da página e dos Centros após selecionar um Material em
 Aqui está a exibição da lista de Materiais que o Centro em específico aceita.
 
 ![Visualizando os Materiais do Centro selecionado](prints/mostrar_materiais.png)
-
-📹 [Vídeo: Como usar o nosso app](https://drive.google.com/file/d/1-yONQI7I6VTSSRW1BctiQ9c0P5VncYgT/view?usp=drive_link)
